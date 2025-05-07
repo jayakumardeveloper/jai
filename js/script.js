@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
 	"use strict";
 
 	$(".history-scroller").niceScroll({
@@ -17,7 +17,7 @@
 		speed: 300,
 		arrows: false,
 		adaptiveHeight: true,
-		
+
 		slidesToShow: 2,
 		slidesToScroll: 1,
 		responsive: [
@@ -41,13 +41,13 @@
 			}
 		]
 	});
-	
+
 	animatedProgressBar();
 	windowHieght();
 	previewPannel();
 
-	function animatedProgressBar () {
-		$(".progress").each(function() {
+	function animatedProgressBar() {
+		$(".progress").each(function () {
 			var skillValue = $(this).find(".skill-lavel").attr("data-skill-value");
 			$(this).find(".bar").animate({
 				width: skillValue
@@ -57,8 +57,8 @@
 		});
 	}
 
-	function windowHieght(){
-		if ( $(window).height() <=768 ) {
+	function windowHieght() {
+		if ($(window).height() <= 768) {
 			$(".pt-table").addClass("desktop-768");
 		} else {
 			$(".pt-table").removeClass("desktop-768");
@@ -81,13 +81,13 @@
 			}
 		});
 
-		$(".filter a").on("click", function(){
+		$(".filter a").on("click", function () {
 			$(".filter a").removeClass("active");
 			$(this).addClass("active");
 			var selector = $(this).attr("data-filter");
 			$(".isotope-gutter").isotope({
-					filter: selector,
-					animationOptions: {
+				filter: selector,
+				animationOptions: {
 					duration: 750,
 					easing: "linear",
 					queue: false
@@ -101,22 +101,22 @@
 		Preview Pannel
 	-=-=-=-=-=-=-=-=-=--=-=-=-=-=-*/
 	function previewPannel() {
-		$(".switcher-trigger").on("click", function() {
+		$(".switcher-trigger").on("click", function () {
 			$(".preview-wrapper").toggleClass("extend");
 			return false;
 		});
-		if ($(window).width() < 768 ) {            
+		if ($(window).width() < 768) {
 			//$(".preview-wrapper").removeClass("extend");
 		}
-		$(".color-options li").on("click", function(){			
+		$(".color-options li").on("click", function () {
 			$("#color-changer").attr({
-				"href":"css/colors/"+$(this).attr("data-color")+".css"
+				"href": "css/colors/" + $(this).attr("data-color") + ".css"
 			});
 			return false;
 		});
 	}
-	
-	$(window).on("load", function() {
+
+	$(window).on("load", function () {
 		isotopeMasonry();
 
 		$(".preloader").addClass("active");
@@ -124,5 +124,20 @@
 			$(".preloader").addClass("done");
 		}, 1000);
 	});
-
+	// meta tag dynamic domain
+	const currentUrl = window.location.origin;
+	const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
+	const ogUrlImgTag = document.querySelector('meta[property="og:image"]');
+	const twitterUrlImgTag = document.querySelector('meta[name="twitter:image"]');
+	const twitterUrlTag = document.querySelector('meta[name="twitter:url"]');
+	if (ogUrlMetaTag) {
+		ogUrlMetaTag.setAttribute('content', currentUrl);
+		ogUrlImgTag.setAttribute('content', currentUrl + "/images/preview-image.png");
+		twitterUrlTag.setAttribute('content', currentUrl);
+		twitterUrlImgTag.setAttribute('content', currentUrl + "/images/preview-image.png");
+	}
+	const canonicalLink = document.querySelector('link[rel="canonical"]');
+	if (canonicalLink) {
+		canonicalLink.setAttribute('href', currentUrl);
+	}
 })(jQuery);
