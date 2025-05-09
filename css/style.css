@@ -873,7 +873,9 @@ label {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
   }
-  & .content, h4 {
+
+  & .content,
+  h4 {
     color: #000;
   }
 }
@@ -1561,10 +1563,7 @@ label {
   }
 
   .about-author .author-thumb {
-    border: 0 none;
-    margin-bottom: 15px;
-    margin-right: 0;
-    padding: 0;
+    margin: 21px auto;
   }
 
   .about-author .author-desc b {
