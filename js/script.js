@@ -132,9 +132,9 @@
 	const twitterUrlTag = document.querySelector('meta[name="twitter:url"]');
 	if (ogUrlMetaTag) {
 		ogUrlMetaTag.setAttribute('content', currentUrl);
-		ogUrlImgTag.setAttribute('content', currentUrl + "/images/preview-image.png");
+		ogUrlImgTag.setAttribute('content', currentUrl + "/images/Jayakumar-developer.png");
 		twitterUrlTag.setAttribute('content', currentUrl);
-		twitterUrlImgTag.setAttribute('content', currentUrl + "/images/preview-image.png");
+		twitterUrlImgTag.setAttribute('content', currentUrl + "/images/Jayakumar-developer.png");
 	}
 	const canonicalLink = document.querySelector('link[rel="canonical"]');
 	if (canonicalLink) {
