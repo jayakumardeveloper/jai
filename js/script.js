@@ -124,20 +124,4 @@
 			$(".preloader").addClass("done");
 		}, 1000);
 	});
-	// meta tag dynamic domain
-	const currentUrl = window.location.origin;
-	const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
-	const ogUrlImgTag = document.querySelector('meta[property="og:image"]');
-	const twitterUrlImgTag = document.querySelector('meta[name="twitter:image"]');
-	const twitterUrlTag = document.querySelector('meta[name="twitter:url"]');
-	if (ogUrlMetaTag) {
-		ogUrlMetaTag.setAttribute('content', currentUrl);
-		ogUrlImgTag.setAttribute('content', currentUrl + "/images/Jayakumar-developer.png");
-		twitterUrlTag.setAttribute('content', currentUrl);
-		twitterUrlImgTag.setAttribute('content', currentUrl + "/images/Jayakumar-developer.png");
-	}
-	const canonicalLink = document.querySelector('link[rel="canonical"]');
-	if (canonicalLink) {
-		canonicalLink.setAttribute('href', currentUrl);
-	}
 })(jQuery);
